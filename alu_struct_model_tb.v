@@ -47,8 +47,8 @@ initial begin
     Sel = 3'b011;
     #10;
 
-    A = 4'd15;
-    B = 4'd2;
+    A = 4'd12;
+    B = 4'd3;
     Sel = 3'b100;
     #10;
 

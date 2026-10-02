@@ -97,7 +97,7 @@ end
 endmodule
 
 
-module alu(
+module alu_struct_model(
     input [3:0] A,
     input [3:0] B,
     input [2:0] Sel,
