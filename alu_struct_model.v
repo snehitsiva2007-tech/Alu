@@ -68,33 +68,30 @@ module divider_4bit(
     output reg [3:0] Quotient
 );
 
-reg [3:0] remainder;
+reg [4:0] remainder;
 reg [3:0] quotient;
 integer i;
 
 always @(*) begin
-
-    remainder = A;
+    remainder = 5'b00000;
     quotient = 4'b0000;
 
     if (B != 4'b0000) begin
+        for (i = 3; i >= 0; i = i - 1) begin
+            remainder = {remainder[3:0], A[i]};
 
-        for (i = 0; i < 4; i = i + 1) begin
-
-            if (remainder >= B) begin
-                remainder = remainder - B;
-                quotient = quotient + 1'b1;
+            if (remainder >= {1'b0, B}) begin
+                remainder = remainder - {1'b0, B};
+                quotient[i] = 1'b1;
             end
-
         end
-
     end
 
     Quotient = quotient;
-
 end
 
 endmodule
+
 
 
 module alu_struct_model(
